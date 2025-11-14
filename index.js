@@ -3,11 +3,13 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors'); // Import cors
 
 const app = express();
 const PORT = 3000;
 const USERS_FILE = path.join(__dirname, 'users.json');
 
+app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.json());
 
 // Helper function to read users
